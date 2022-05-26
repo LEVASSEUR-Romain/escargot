@@ -40,9 +40,9 @@ test("controleSnail test", () => {
   ];
   const finich = [75, 70, 56, 68, 81];
   const finichAnimation = [2, 2, 4, 3, 1];
-  const toTest = controleSnail(snails, Constant);
+  controleSnail(snails, Constant);
   for (let i = 0; i < snails.length; i++) {
-    expect(toTest[i]).toBeWithinRange(finich[i]);
-    expect(toTest[i].animation).toEqual(finichAnimation[i]);
+    expect(snails[i]).toBeWithinRange(finich[i]);
+    expect(snails[i].animation).toEqual(finichAnimation[i]);
   }
 });

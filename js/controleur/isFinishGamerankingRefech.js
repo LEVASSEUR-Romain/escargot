@@ -1,3 +1,9 @@
+/**
+ *
+ * @param {ArraySnail} snails Array of snails
+ * @param {ObjectConstant} Constants Object of constants
+ * @returns {boolean} true if all snails are finish
+ */
 const isFinishGamerankingRefech = (snails, Constants) => {
   let finish = 0;
   snails.forEach((element) => {

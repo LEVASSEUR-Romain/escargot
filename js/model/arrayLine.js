@@ -1,3 +1,8 @@
+/**
+ *
+ * @param {ObjectConstant} Constants Object of constants
+ * @returns {ArrayLine} Array of lines for draw
+ */
 export const arrayLine = (Constants) => {
   const array = [];
   const distanceLine = Math.floor(

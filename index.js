@@ -1,5 +1,5 @@
 // pour les test
-// node --experimental-vm-modules node_modules/jest/bin/jest.js
+//npm run test
 
 // import
 import Constants from "./js/Constants.js";
@@ -54,7 +54,7 @@ const allDraw = () => {
 
 const gameLoop = () => {
   if (!stopGameLoop) {
-    Snails = controleSnail(Snails, Constants);
+    controleSnail(Snails, Constants);
     allDraw();
     myTimeout = setTimeout(gameLoop, Constants.gameLoopSpeed);
     if (isFinishGamerankingRefech(Snails, Constants)) {

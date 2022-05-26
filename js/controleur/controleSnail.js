@@ -1,3 +1,10 @@
+/**
+ *
+ * @param {ArraySnail} snails Array of snails
+ * @param {ObjectConstant} Constants Object of constants
+ * @returns update snails
+ */
+
 const controleSnail = (snails, Constants) => {
   snails.forEach((element) => {
     if (element.x < Constants.widthCanvas - Constants.widthSnail) {
@@ -13,7 +20,6 @@ const controleSnail = (snails, Constants) => {
           : element.animation + 1;
     }
   });
-  return snails;
 };
 
 export default controleSnail;

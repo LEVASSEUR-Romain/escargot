@@ -2,6 +2,7 @@ const width = 33;
 const height = 34;
 const y = 70;
 const x = 20;
+// cut sprite
 const ConstanteCut = {
   1: {
     x: x,
