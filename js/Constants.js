@@ -7,13 +7,14 @@ const Constants = {
   colorLine: "black",
   widthLine: 1,
   borderSnail: 10,
-  widthSnail: 30,
-  colorSnail: "green",
+  // look constanteCut widht
+  widthSnail: 34,
   speedMinAlea: 2,
   speedMaxAlea: 7,
   gameLoopSpeed: 100,
   // tourjours a 0
-  classement: 0,
+  ranking: 0,
+  animationTotal: 8,
 };
 
 export default Constants;
