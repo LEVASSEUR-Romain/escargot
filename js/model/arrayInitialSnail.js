@@ -1,3 +1,8 @@
+/**
+ *
+ * @param {ObjectConstant} Constants Object of constants
+ * @returns {ArraySnail} Array of snails
+ */
 const arrayInitialSnail = (Constants) => {
   const array = [];
   const distanceLine = Math.floor(
