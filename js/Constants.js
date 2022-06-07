@@ -14,6 +14,7 @@ const Constants = {
   widthLine: 1,
   // parametre animation
   gameLoopSpeed: 100,
+  //nombre animation sprite
   animationTotal: 8,
   // tourjours a 0
   ranking: 0,

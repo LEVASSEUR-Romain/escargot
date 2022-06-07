@@ -3,16 +3,29 @@
     padding: 0;
 }
 
-/* body {
-    display: flex;
-    flex-direction: column;
-} */
+#canvas {
+    margin-top: 20px;
+}
 
-/* #canvas {
-    width: 50%;
-    height: 50%;
-} */
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
 #start {
+    margin-top: 10px;
     width: 20%;
     height: 20%;
+}
+
+form {
+    width: 300px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }

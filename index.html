@@ -10,10 +10,28 @@
   <body>
     <main>
       <canvas id="canvas"></canvas>
-      <nav>
-        <button id="start">Start</button>
-      </nav>
+      <button id="start">Start</button>
       <div id="result"></div>
+      <form>
+        <label for="width">width Canvas</label>
+        <input type="number" id="width" />
+        <label for="height">height Canvas</label>
+        <input type="number" id="height" />
+        <label for="number">number of snail</label>
+        <input type="number" id="number" />
+        <label for="speedMinAlea">speed Minimum random</label>
+        <input type="number" id="speedMinAlea" />
+        <label for="speedMaxAlea">speed Maximum random</label>
+        <input type="number" id="speedMaxAlea" />
+        <label for="borderSnail">border Snail</label>
+        <input type="number" id="borderSnail" />
+        <label for="colorLine">color border</label>
+        <input type="color" id="colorLine" />
+        <label for="gameLoopSpeed">time Loop Speed</label>
+        <input type="number" id="gameLoopSpeed" />
+        <button id="submit">change</button>
+        <button id="reset">reset default</button>
+      </form>
     </main>
     <script type="module" src="index.js"></script>
   </body>

@@ -7,6 +7,12 @@ import Constants from "./js/Constants.js";
 import drawBackground from "./js/view/drawBackground.js";
 import drawLine from "./js/view/drawLine.js";
 import drawSnail from "./js/view/drawSnail.js";
+import {
+  changeViewForm,
+  resetViewForm,
+  changeConstants,
+} from "./js/view/formulaireView.js";
+import resizeCanvas from "./js/view/resizeCanvas.js";
 // model
 import arrayline from "./js/model/arrayLine.js";
 import reStartSnail from "./js/model/reStartSnail.js";
@@ -16,17 +22,27 @@ import isFinishGamerankingRefech from "./js/controleur/isFinishGamerankingRefech
 import loaderStratSnail from "./js/controleur/loaderStratSnail.js";
 import controleSnail from "./js/controleur/controleSnail.js";
 import loaderStratBackground from "./js/controleur/loaderStratBackground.js";
+// constante global
+let constantInGame = { ...Constants };
 // cible document
 const canvas = document.getElementById("canvas");
 const buttonStart = document.getElementById("start");
 const result = document.getElementById("result");
-// canvas
-canvas.width = Constants.widthCanvas;
-canvas.height = Constants.heightCanvas;
+const changeId = document.getElementById("submit");
+const resetId = document.getElementById("reset");
+
 const ctx = canvas.getContext("2d");
 // initialisation
-const line = arrayline(Constants);
-let Snails = arrayInitialSnail(Constants);
+let line = [];
+let Snails = [];
+const init = () => {
+  line = arrayline(constantInGame);
+  Snails = arrayInitialSnail(constantInGame);
+  // canvas
+  canvas.width = constantInGame.widthCanvas;
+  canvas.height = constantInGame.heightCanvas;
+};
+
 // constants loop
 let myTimeout = undefined;
 let stopGameLoop = false;
@@ -39,11 +55,15 @@ const initImage = (img) => {
   if (imageSnail !== "" && backgroundImage != "") allDraw();
 };
 // loader
+init();
 loaderStratSnail(initImage);
 loaderStratBackground(initImage);
+//start formulaire
+changeViewForm(constantInGame);
 
+// event
 const allDraw = () => {
-  drawBackground(ctx, backgroundImage, Constants);
+  drawBackground(ctx, backgroundImage, constantInGame);
   line.forEach((line) => {
     drawLine(ctx, line);
   });
@@ -54,10 +74,10 @@ const allDraw = () => {
 
 const gameLoop = () => {
   if (!stopGameLoop) {
-    controleSnail(Snails, Constants);
+    controleSnail(Snails, constantInGame);
     allDraw();
-    myTimeout = setTimeout(gameLoop, Constants.gameLoopSpeed);
-    if (isFinishGamerankingRefech(Snails, Constants)) {
+    myTimeout = setTimeout(gameLoop, constantInGame.gameLoopSpeed);
+    if (isFinishGamerankingRefech(Snails, constantInGame)) {
       clearTimeout(myTimeout);
       buttonStart.innerHTML = "Start";
       //afficher les resultats
@@ -77,7 +97,7 @@ const goStart = () => {
   if (buttonStart.innerHTML === "Start") {
     result.innerHTML = "";
     stopGameLoop = false;
-    Constants.ranking = 0;
+    constantInGame.ranking = 0;
     reStartSnail(Snails);
     buttonStart.innerHTML = "Stop";
     gameLoop();
@@ -87,15 +107,34 @@ const goStart = () => {
   }
 };
 
-// ecouteur d'evenemnt
+// ecouteur d'evenement
 buttonStart.addEventListener("click", goStart);
-//allDraw();
+changeId.addEventListener("click", (event) => {
+  event.preventDefault();
+  changeConstants(constantInGame);
+  // reset
+  init();
+  allDraw();
+});
+resetId.addEventListener("click", (event) => {
+  event.preventDefault();
+  resetViewForm(constantInGame, Constants);
+  // reset
+  init();
+  allDraw();
+});
+// lancer en appuyant sur enter
+window.addEventListener("keydown", (e) => {
+  if (e.keyCode === 13) {
+    goStart();
+  }
+});
 
 /* window.addEventListener(
   "resize",
   () => {
     resizeCanvas(canvas);
-    drawBackground(ctx, canvas.width, canvas.height);
+    allDraw();
   },
   false
 ); */

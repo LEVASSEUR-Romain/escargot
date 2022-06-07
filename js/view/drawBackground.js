@@ -5,8 +5,6 @@
  * @param {ObjectConstant} Constants
  */
 const drawBackground = (ctx, img, Constants) => {
-  console.log("ctx", ctx);
-  console.log("img", img);
   ctx.drawImage(img, 0, 0, Constants.widthCanvas, Constants.heightCanvas);
 };
 
