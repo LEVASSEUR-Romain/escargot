@@ -1,3 +1,3 @@
 # escargot
 
-liens : cinequiz.fb.free.fr/project/escargot/
+liens : http://cinequiz.fb.free.fr/project/escargot/
